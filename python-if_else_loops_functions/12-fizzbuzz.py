@@ -1,4 +1,4 @@
-#!/usr/bin/pyhon3
+#!/usr/bin/python3
 def fizzbuzz():
     """Print the numbers from 1 to 100 separated by a space.
 
