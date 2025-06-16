@@ -9,4 +9,4 @@ else:
     if __name__ == "__main__":
         print(count, word)
         for i,element in enumerate(element, start=1):
-            print(f"{i} : { element}")
+            print(f"{i}: {element}")
