@@ -8,5 +8,5 @@ else:
     word = "argument:" if count == 1 else "arguments:"
     if __name__ == "__main__":
         print(count, word)
-        for i,element in enumerate(element, start=1):
+        for i, element in enumerate(element, start=1):
             print(f"{i}: {element}")
