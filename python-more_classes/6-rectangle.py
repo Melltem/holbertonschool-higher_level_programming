@@ -58,12 +58,9 @@ class Rectangle:
         return "\n".join("#" * self.__width for _ in range(self.__height))
 
     def __repr__(self):
-        return (
-            f"Rectangle({self.__width}, {self.__height})"
-        )
-
+        return f"Rectangle({self.__width}, {self.__height})"
 
     def __del__(self):
-        """Called when an instance is deleted. Print message and update count."""
-        print("Bye rectangle...")
+        """ Prints a message upon deletion"""
         Rectangle.number_of_instances -= 1
+        print("Bye rectangle...")
