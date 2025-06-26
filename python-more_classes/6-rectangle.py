@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-"""Defines a Rectangle class with instance counting."""
+"""Defines a Rectangle class with instance tracking."""
 
 
 class Rectangle:
     """Represents a rectangle."""
 
-    number_of_instances = 0  # public class attribute
+    number_of_instances = 0
 
     def __init__(self, width=0, height=0):
         """Initialize a new Rectangle and increment instance counter."""
@@ -42,36 +42,26 @@ class Rectangle:
         self.__height = value
 
     def area(self):
-        """Return the rectangle area."""
+        """Return the area of the rectangle."""
         return self.__width * self.__height
 
     def perimeter(self):
-        """Return the rectangle perimeter.
-
-        If width or height is 0, perimeter is 0.
-        """
+        """Return the perimeter, or 0 if width or height is 0."""
         if self.__width == 0 or self.__height == 0:
             return 0
         return 2 * (self.__width + self.__height)
 
     def __str__(self):
-        """Print the rectangle with the '#' character.
-
-        Returns an empty string if width or height is 0.
-        """
+        """Return the rectangle as a string of # characters."""
         if self.__width == 0 or self.__height == 0:
             return ""
-
-        lines = ["#" * self.__width for _ in range(self.__height)]
-        return "\n".join(lines)
+        return "\n".join("#" * self.__width for _ in range(self.__height))
 
     def __repr__(self):
-        """Return string to recreate the instance via eval()."""
+        """Return a string that can recreate the rectangle using eval()."""
         return f"Rectangle({self.__width}, {self.__height})"
 
-
     def __del__(self):
-        """Print a message when an instance is deleted and decrement counter."""
+        """Called when an instance is deleted. Print message and update count."""
         print("Bye rectangle...")
-        Rectangle.number_of_instances -= 1O
-
+        Rectangle.number_of_instances -= 1
