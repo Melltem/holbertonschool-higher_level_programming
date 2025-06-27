@@ -1,21 +1,13 @@
-#!/usr/bin/python3
-"""Defines a class Student with attribute filtering in to_json."""
+def to_json(self, attrs=None):
+    """Retrieve dictionary representation of Student.
 
-
-class Student:
-    """Represents a student."""
-
-    def __init__(self, first_name, last_name, age):
-        self.first_name = first_name
-        self.last_name = last_name
-        self.age = age
-
-    def to_json(self, attrs=None):
-        """Retrieve dictionary representation of Student.
-
-        If attrs is a list of strings, return only those attributes.
-        Otherwise, return all attributes.
-        """
-        if isinstance(attrs, list) and all(isinstance(attr, str) for attr in attrs):
-            return {key: getattr(self, key) for key in attrs if hasattr(self, key)}
-        return self.__dict__
+    If attrs is a list of strings, return only those attributes.
+    Otherwise, return all attributes.
+    """
+    if isinstance(attrs, list) and all(isinstance(attr, str) for attr in attrs):
+        return {
+            key: getattr(self, key)
+            for key in attrs
+            if hasattr(self, key)
+        }
+    return self.__dict__
