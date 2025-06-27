@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+"""Retrieve dictionary representation of Student."""
+
+
 def to_json(self, attrs=None):
     """Retrieve dictionary representation of Student.
 
