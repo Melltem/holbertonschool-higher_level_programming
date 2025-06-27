@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+"""Create a function def pascal_triangle(n)"""
+
+
 def pascal_triangle(n):
     if n <= 0:
         return []
