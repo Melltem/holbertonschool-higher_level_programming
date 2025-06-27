@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""Defines a class Student with
-attribute filtering in to_json."""
+"""Defines a class Student with attribute filtering in to_json."""
 
 
 class Student:
@@ -12,7 +11,11 @@ class Student:
         self.age = age
 
     def to_json(self, attrs=None):
-        if (type(attrs) == list and
-                all(type(attr) == str for attr in attrs)):
+        """Retrieve dictionary representation of Student.
+
+        If attrs is a list of strings, return only those attributes.
+        Otherwise, return all attributes.
+        """
+        if isinstance(attrs, list) and all(isinstance(attr, str) for attr in attrs):
             return {key: getattr(self, key) for key in attrs if hasattr(self, key)}
         return self.__dict__
