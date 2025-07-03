@@ -1,6 +1,9 @@
+#!/usr/bin/env python3
+"""Serialize and deserialize with XML"""
 import xml.etree.ElementTree as ET
 
 def serialize_to_xml(dictionary, filename):
+    """Serialize and deserialize with XML"""
     try:
         root = ET.Element("data")
 
@@ -16,6 +19,7 @@ def serialize_to_xml(dictionary, filename):
     except:
         return False
 def deserialize_from_xml(filename):
+    """Serialize and deserialize with XML"""
     try:
         tree = ET.parse(filename)
         root = tree.getroot()
