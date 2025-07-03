@@ -2,31 +2,27 @@
 """Serialize and deserialize with XML"""
 import xml.etree.ElementTree as ET
 
+
 def serialize_to_xml(dictionary, filename):
-    """Serialize and deserialize with XML"""
-    try:
-        root = ET.Element("data")
+    """Serialize <dictionary> into an XML file
+    calles <filename>"""
+    root = ET.Element("data")
+    for key, value in dictionary.items():
+        child = ET.SubElement(root, key)
+        child.text = str(value)
 
-        for key in dictionary:
-            item = ET.SubElement(root, key)
-            item.text = str(dictionary[key]
+    tree = ET.ElementTree(root)
+    tree.write(filename, encoding='utf-8', xml_declaration=True)
 
 
-        tree = ET.ElementTree(root)
-        tree.write(filename)
-
-        return True
-    except:
-        return False
 def deserialize_from_xml(filename):
-    """Serialize and deserialize with XML"""
+    """Read XML data and return deserialized Python dictionary"""
     try:
         tree = ET.parse(filename)
         root = tree.getroot()
         result = {}
-        for item in root:
-            result[item.tag] = item.text
-
+        for child in root:
+            result[child.tag] = child.text
         return result
-    except:
+    except Exception:
         return None
