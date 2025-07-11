@@ -1,23 +1,20 @@
 #!/usr/bin/python3
-"""
-0-hbtn_status module
-
-Fetches the status from https://intranet.hbtn.io/status using urllib.
-Prints the response body type, raw bytes, and UTF-8 decoded content.
-"""
-
-import urllib.request
-
-def fetch_status():
-    url = "https://intranet.hbtn.io/status"
-    headers = {'User-Agent': 'Mozilla/5.0'}
-    req = urllib.request.Request(url, headers=headers)
-    with urllib.request.urlopen(req) as response:
-        body = response.read()
-        print("Body response:")
-        print(f"\t- type: {type(body)}")
-        print(f"\t- content: {body}")
-        print(f"\t- utf8 content: {body.decode('utf-8')}")
+"""module documented"""
+from urllib import request
 
 if __name__ == "__main__":
-    fetch_status()
+    """Makes code executable when it is directly run"""
+    url = "https://intranet.hbtn.io/status"
+    req = request.Request(url)
+    req.add_header('cfclearance', 'true')
+
+    with request.urlopen(req) as response:
+        """Opens the url and reads the contents"""
+        body = response.read()
+        utf8_content = body.decode('utf-8')
+
+    """Prints out the desired output"""
+    print("Body response:")
+    print("\t- type:", type(body))
+    print("\t- content:", body)
+    print("\t- utf8 content:", utf8_content)
