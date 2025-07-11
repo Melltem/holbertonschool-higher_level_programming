@@ -4,15 +4,11 @@
 
 Fetches the status from https://intranet.hbtn.io/status using urllib.
 Prints the response body type, raw bytes, and UTF-8 decoded content.
-
-Usage:
-    Run as a script to display the status response.
 """
 
 import urllib.request
 
 def fetch_status():
-    """Fetches and prints the body response from the intranet status URL."""
     url = "https://intranet.hbtn.io/status"
     headers = {'User-Agent': 'Mozilla/5.0'}
     req = urllib.request.Request(url, headers=headers)
