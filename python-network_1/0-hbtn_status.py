@@ -14,7 +14,9 @@ import urllib.request
 def fetch_status():
     """Fetches and prints the body response from the intranet status URL."""
     url = "https://intranet.hbtn.io/status"
-    with urllib.request.urlopen(url) as response:
+    headers = {'User-Agent': 'Mozilla/5.0'}
+    req = urllib.request.Request(url, headers=headers)
+    with urllib.request.urlopen(req) as response:
         body = response.read()
         print("Body response:")
         print(f"\t- type: {type(body)}")
