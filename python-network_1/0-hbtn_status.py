@@ -1,6 +1,6 @@
 #!/usr/bin/python3
+"""Module documented"""
 import urllib.request
-#Module documented
 url = "https://intranet.hbtn.io/status"
 
 with urllib.request.urlopen(url) as response:
