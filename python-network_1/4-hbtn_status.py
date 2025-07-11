@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """
-Fetches https://intranet.hbtn.io/status and displays the body with formatting"""
+Fetches https://intranet.hbtn.io/status and displays the body
+with formatting.
+"""
 import requests
 
 if __name__ == "__main__":
